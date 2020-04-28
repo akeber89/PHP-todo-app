@@ -4,6 +4,12 @@ use Todo\Models\Task;
 
 require 'vendor/autoload.php';
 
-$task = new Task;
+$db = new PDO('mysql:host=127.0.0.1; dbname=tasks', 'root', 'root');
 
-var_dump($task);
+
+$tasks = $db->prepare("SELECT * FROM tasks");
+
+$tasks->setFetchMode(PDO::FETCH_CLASS, Task::class);
+
+$tasks->execute();
+
