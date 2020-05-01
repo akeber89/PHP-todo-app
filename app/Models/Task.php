@@ -1,8 +1,8 @@
 <?php
 
-namespace Todo\Models;
-
 use DateTime;
+
+namespace Todo\Models;
 
 class Task
 {
@@ -41,7 +41,7 @@ class Task
 
     public function getDue()
     {
-        if(!$this->due instanceof DateTime){
+        if (!$this->due instanceof DateTime){
             return new DateTime($this->due);
         }
 
